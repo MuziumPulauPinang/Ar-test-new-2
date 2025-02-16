@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Ar Muzium Negeri Pulau Pinang</title>
+    <title>AR Muzium Negeri Pulau Pinang</title>
     
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
@@ -13,21 +13,21 @@
   <body>
     <a-scene
       vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; trackingMethod: best; locationSource: gps;"
     >
-      <!-- Your 3D Model -->
+      <!-- Your 3D Model (Fix Position Issue) -->
       <a-entity
         gltf-model="Muzium_Penang.glb"
         gps-entity-place="latitude: 6.275675; longitude: 100.413561;"
         scale="3 3 3"
         position="0 0 0"
+        animation-mixer
       ></a-entity>
 
-      <!-- Floating Text (Always Faces User) -->
+      <!-- Floating Text (Remove Look-At) -->
       <a-text
         value="Hello"
-        look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="30 30 30"
         gps-entity-place="latitude: 6.275675; longitude: 100.413561;"
         position="0 5 0"
       ></a-text>
