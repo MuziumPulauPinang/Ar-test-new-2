@@ -17,8 +17,13 @@
     >
       <!-- SLAM-Based 3D Model (No GPS) -->
      <a-anchor hit-testing-enabled>
-  <a-box position="0 0 0" material="color: red"></a-box>
-</a-anchor>
+        <a-entity
+          gltf-model="Muzium_Penang.glb"
+          scale="3 3 3"
+          position="0 0 0"
+          animation-mixer
+        ></a-entity>
+      </a-anchor>
 
       <!-- Camera -->
       <a-camera position="0 0 0"></a-camera>
