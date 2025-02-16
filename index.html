@@ -15,15 +15,14 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: true; trackingMethod: best;"
     >
-      <!-- SLAM-Based 3D Model (No GPS) -->
-     <a-anchor hit-testing-enabled>
-        <a-entity
-          gltf-model="Muzium_Penang.glb"
-          scale="3 3 3"
-          position="0 0 0"
-          animation-mixer
-        ></a-entity>
-      </a-anchor>
+     <!-- GPS-Based AR (Main Model) -->
+      <a-entity
+        gltf-model="Muzium_Penang.glb"
+        gps-entity-place="latitude: 6.275675; longitude: 100.413561;"
+        scale="3 3 3"
+        position="0 0 0"
+        animation-mixer
+      ></a-entity>
 
       <!-- Camera -->
       <a-camera position="0 0 0"></a-camera>
