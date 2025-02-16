@@ -13,9 +13,9 @@
   <body>
     <a-scene
       vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; trackingMethod: best; locationSource: gps;"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true; trackingMethod: best; locationSource: gps;"
     >
-      <!-- Your 3D Model (Fix Position Issue) -->
+      <!-- GPS-Based AR (Main Model) -->
       <a-entity
         gltf-model="Muzium_Penang.glb"
         gps-entity-place="latitude: 6.275675; longitude: 100.413561;"
@@ -24,7 +24,7 @@
         animation-mixer
       ></a-entity>
 
-      <!-- Floating Text (Remove Look-At) -->
+      <!-- Floating Text -->
       <a-text
         value="Hello"
         scale="30 30 30"
@@ -32,8 +32,18 @@
         position="0 5 0"
       ></a-text>
 
-      <!-- Camera with GPS -->
-      <a-camera gps-camera rotation-reader></a-camera>
+      <!-- Alternative: SLAM-Based Tracking (Uncomment to Use) -->
+      <!-- This places the model on a detected real-world surface instead of GPS -->
+      
+      <a-entity 
+        gltf-model="Muzium_Penang.glb" 
+        scale="3 3 3" 
+        position="0 0 0"
+        arjs-anchor
+      ></a-entity> 
+
+      <!-- Camera with GPS Fix -->
+      <a-camera gps-camera fixPosition="true" rotation-reader></a-camera>
     </a-scene>
   </body>
 </html>
